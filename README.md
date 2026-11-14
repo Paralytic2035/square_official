@@ -52,7 +52,7 @@ cd ~/template2026_ws && catkin_make -j2
 # 仿真
 roslaunch square_official square.launch
 
-# 实机（必须带 param_file，否则读仿真默认 if_debug 1）
+# 实机（带 param_file 用 1.0 m 边长；不带则是 0.5 m）
 roslaunch square_official square.launch \
   param_file:=$HOME/template2026_ws/src/square_official/config/square_hardware.yaml
 ```
