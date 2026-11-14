@@ -1,0 +1,7 @@
+<launch>
+  <!-- 参数必须加载在全局命名空间（与课程 mission 包一致） -->
+  <arg name="param_file" default="$(find square_official)/config/square.yaml"/>
+  <rosparam command="load" file="$(arg param_file)"/>
+
+  <node pkg="square_official" type="square_official_node" name="square_official" output="screen"/>
+</launch>
