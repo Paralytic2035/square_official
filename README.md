@@ -25,7 +25,7 @@ square_official/
 ├── CMakeLists.txt                  add_executable(square_official_node src/square.cpp)
 ├── launch/square.launch            支持 param_file 覆盖
 ├── config/
-│   ├── square.yaml                 仿真（4 点 / 0.5 m / if_debug 1）
+│   ├── square.yaml                 4 点 / 0.5 m / if_debug 0
 │   └── square_hardware.yaml        实机（4 点 / 1.0 m / if_debug 0）
 └── src/square.cpp                  官方源码，未修改
 ```
@@ -60,8 +60,8 @@ roslaunch square_official square.launch \
 ## 重要提醒
 
 1. **它只飞 4 个点**。yaml 里写第 5 个点也不会被读——这是官方实现的限制，不是 bug。
-2. **实机必须用 `square_hardware.yaml`**。默认 `config/square.yaml` 是 `if_debug 1`，
-   程序会自己切 OFFBOARD 并请求解锁。
+2. **两份 yaml 的 `if_debug` 都是 0**（实机安全）。如果你要在**仿真**里跑，
+   把它改成 1，否则程序会一直等 `Waiting for OFFBOARD mode` 不起飞。
 3. 本包**不负责起飞控和定位**（那属于 `fly_demo`），只起任务节点。
 
 ## 为什么单独做个包

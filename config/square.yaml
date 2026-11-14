@@ -1,6 +1,6 @@
 ## 官方实现 · 仿真默认（4 航点，边长 0.5 m）
 err_max : 0.15
-if_debug : 1
+if_debug : 0        # 实机必须 0；仿真里要改成 1 才能自己切 OFFBOARD
 
 altitude: 0.8
 
